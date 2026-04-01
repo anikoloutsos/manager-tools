@@ -13,19 +13,13 @@ A personal tool for chapter leads to manage 1:1s, keep private notes on each eng
 
 | Layer | Technology |
 |---|---|
-| Backend | Java 24 + Spring Boot 3.4 |
+| Backend | Java 25 + Spring Boot 4.0 |
 | Database | PostgreSQL 16 |
-| ORM | Spring Data JPA + Hibernate |
-| Frontend | React 19 + TypeScript + Vite 8 |
-| Styling | Tailwind CSS |
-| HTTP client | Axios + TanStack Query |
-| Routing | React Router v6 |
 
 ## Prerequisites
 
-- Java 24+
+- Java 25+
 - Maven 3.9+
-- Node.js 20+
 - Docker (for PostgreSQL)
 
 ## Running locally
@@ -43,19 +37,9 @@ cd backend
 mvn spring-boot:run
 ```
 
-The backend starts on `http://localhost:8080`. On the first run it seeds 12 placeholder engineers into the database.
+The backend starts on `http://localhost:8080`.
 
 > **Note:** The database runs on port **5433** (not the default 5432) to avoid conflicts with other local PostgreSQL instances.
-
-**3. Start the frontend**
-
-```bash
-cd frontend
-npm install
-npm run dev
-```
-
-Open `http://localhost:5173` in your browser.
 
 ## Running tests
 
@@ -66,19 +50,6 @@ cd backend
 mvn test
 ```
 
-**Backend integration tests** (requires Docker — spins up a real PostgreSQL container via Testcontainers)
-
-```bash
-cd backend
-mvn verify
-```
-
-**Frontend tests**
-
-```bash
-cd frontend
-npm test
-```
 
 ## Project structure
 
@@ -86,19 +57,5 @@ npm test
 managertools/
 ├── docker-compose.yml       # Local PostgreSQL
 ├── backend/                 # Spring Boot API
-│   └── src/
-│       ├── main/java/com/managertools/
-│       │   ├── engineer/    # Engineer CRUD
-│       │   └── note/        # Note CRUD, search, summary
-│       └── test/            # Testcontainers integration tests + Mockito unit tests
-└── frontend/                # React + TypeScript SPA
-    └── src/
-        ├── api/             # Typed API client
-        ├── pages/           # Dashboard, EngineerDetail, NoteEditor, PreMeetingSummary
-        └── test/            # MSW handlers and Vitest setup
+└── frontend/                # 
 ```
-
-## Roadmap
-
-- **V2** — Goals and OKR tracking (per-engineer, biweekly check-ins, 6-month review cycles)
-- **Later** — Chapter day planning and learning session tracking
